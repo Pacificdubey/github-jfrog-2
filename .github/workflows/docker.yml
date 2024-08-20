@@ -20,8 +20,8 @@ jobs:
         env:
           JF_URL: ${{ vars.JF_URL }}
         with:
-          oidc-provider-name: github
-          oidc-audience: my-aud
+          oidc-provider-name: githubpro
+          # oidc-audience: my-aud
       - name: JFrog Setup
         run: jf rt ping
 
