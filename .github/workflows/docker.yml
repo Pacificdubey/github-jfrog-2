@@ -21,7 +21,7 @@ jobs:
           JF_URL: ${{ vars.JF_URL }}
         with:
           oidc-provider-name: githubpro
-          # oidc-audience: my-aud
+          oidc-audience: test
       - name: JFrog Setup
         run: jf rt ping
 
