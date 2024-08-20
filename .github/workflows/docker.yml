@@ -1,4 +1,4 @@
-name: jFrog Docker Integration
+name: jFrog Docker Integration Test
 on: [push]
 
 env:
