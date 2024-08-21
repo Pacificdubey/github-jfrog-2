@@ -1,5 +1,6 @@
 name: jFrog Docker Integration Test
-on: [push]
+on:
+  workflow_call:
 
 env:
   RUN_NUMBER: ${{ github.run_number }}
