@@ -1,6 +1,5 @@
 name: jFrog Docker Integration Test
-on:
-  workflow_call:
+on: [push]
 
 env:
   RUN_NUMBER: ${{ github.run_number }}
@@ -13,8 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
       - name: JFrog Setup
         id: setup-cli
         uses: jfrog/setup-jfrog-cli@v4.2.2
@@ -22,7 +19,6 @@ jobs:
           JF_URL: ${{ vars.JF_URL }}
         with:
           oidc-provider-name: githubpro
-          oidc-audience: test
       - name: JFrog Setup
         run: jf rt ping
 
