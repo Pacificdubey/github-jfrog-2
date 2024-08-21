@@ -10,6 +10,8 @@ jobs:
             id-token: write
         runs-on: ubuntu-latest
         steps:
+            - name: Set up JFrog CLI
+              uses: jfrog/setup-jfrog-cli@v4.2.2
             - name: Get id token
               run: |
                     ID_TOKEN=$(curl -sLS -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
