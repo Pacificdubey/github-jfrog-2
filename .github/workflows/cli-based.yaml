@@ -24,8 +24,6 @@ jobs:
                     echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
             - name: Set up JFrog CLI
               run: |
-                jf c add --access-token ${{ env.ACCESS_TOKEN }} --url ${{ env.JFROG_PLATFORM_URL }} --interactive=false
+                jf c add --access-token ${{ env.ACCESS_TOKEN }} --url ${{ vars.JF_URL }} --interactive=false
             - name: Checking connection
               run: jf rt ping
-
-            - 
