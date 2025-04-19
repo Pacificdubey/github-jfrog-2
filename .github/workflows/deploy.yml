@@ -1,23 +1,33 @@
 name: Deploy Workflow
 
 on:
-  repository_dispatch:
-    types: [deploy_pr_request]  # Listen for this custom event
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Pull Request Number"
+        required: true
+        type: string
+      comment_author:
+        description: "Comment Author"
+        required: true
+        type: string
+      environment:
+        description: "Environment name"
+        required: true
+        type: string
 
 jobs:
   deploy:
+    name: Deploy to ${{ inputs.environment }}
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
-      - name: Checkout PR code
+      - name: Checkout PR Code
         uses: actions/checkout@v4
         with:
-          ref: refs/pull/${{ github.event.client_payload.pr_number }}/head
-
-      - name: Show Inputs
-        run: |
-          echo "Triggered by PR #${{ github.event.client_payload.pr_number }}"
-          echo "Comment Author: ${{ github.event.client_payload.comment_author }}"
+          ref: refs/pull/${{ inputs.pr_number }}/head
 
       - name: Deploy Application
         run: |
-          echo "Deploying application for PR #${{ github.event.client_payload.pr_number }}..."
+          echo "Deploying PR #${{ inputs.pr_number }} to environment: ${{ inputs.environment }}"
+          # Your actual deploy script goes here
