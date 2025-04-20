@@ -28,6 +28,6 @@ jobs:
     #       ref: refs/pull/${{ inputs.pr_number }}/head
 
       - name: Deploy Application
-        run: |
+        run: ||
           echo "Deploying PR #${{ inputs.pr_number }} to environment: ${{ inputs.environment }}"
           # Your actual deploy script goes here
