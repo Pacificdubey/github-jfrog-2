@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
-      - name: Checkout PR Code
-        uses: actions/checkout@v4
-        with:
-          ref: refs/pull/${{ inputs.pr_number }}/head
+    #   - name: Checkout PR Code
+    #     uses: actions/checkout@v4
+    #     with:
+    #       ref: refs/pull/${{ inputs.pr_number }}/head
 
       - name: Deploy Application
         run: |
