@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout PR Code
         uses: actions/checkout@v4
+        with:
+         ref: feature/testt
 
       - name: Deploy Application
         run: |
