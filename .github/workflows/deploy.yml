@@ -26,6 +26,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Application
-        run: ||
+        run: |
           echo "Deploying PR #${{ inputs.pr_number }} to environment: ${{ inputs.environment }}"
           # Your actual deploy script goes here
